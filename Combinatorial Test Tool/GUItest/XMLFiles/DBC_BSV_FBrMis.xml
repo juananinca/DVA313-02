@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<fileHeader companyName="Bombardier Transportation" companyURL="www.kw-software.com" contentDescription="###XMLINFO=1;1;" creationDateTime="2014-12-17T08:22:36" productName="1131-TOOL" productRelease="Build 172" productVersion="3.1.0.1"/>
+<contentHeader connectionCheck="true" modificationDateTime="2014-12-17T08:22:36" name="LTAAT" version="1418800956">
+<coordinateInfo>
+<pageSize x="999" y="2350"/>
+<fbd>
+<scaling x="2" y="2"/>
+</fbd>
+<ld>
+<scaling x="2" y="2"/>
+</ld>
+<sfc>
+<scaling x="2" y="2"/>
+</sfc>
+</coordinateInfo>
+</contentHeader>
+<types>
+<dataTypes/>
+<pous>
+<pou lastChange="2014-06-16T15:55:22" name="DBC_BSV_FBrMis" pouGroup="CCUO.DBC_B.DBC_B_Lib" pouType="functionBlock">
+<interface>
+<inputVars retain="false">
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_DM1">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_TT2">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_M3">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_T4">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_T5">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_M6">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_TT7">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_XF_FBrMis_DM8">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_DM1">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_TT2">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_M3">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_T4">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_T5">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_M6">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_TT7">
+<type>
+<BOOL/>
+</type>
+</variable>
+<variable group="Inputs" name="DBC_BSV_S_BcuAvl_DM8">
+<type>
+<BOOL/>
+</type>
+</variable>
+</inputVars>
+<outputVars retain="false">
+<variable group="Outputs" name="DBC_BSV_XF_FBrMis">
+<type>
+<REAL/>
+</type>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p xml:space="preserve">1=1kN</p>
+</html>
+</documentation>
+</variable>
+</outputVars>
+<localVars retain="false">
+<variable group="Internal" name="W10_XF_FBrMis">
+<type>
+<REAL/>
+</type>
+</variable>
+<variable group="Parameters" name="Enable">
+<type>
+<BOOL/>
+</type>
+<initialValue>
+<simpleValue value="TRUE"/>
+</initialValue>
+</variable>
+<variable group="Parameters" name="P_0kN">
+<type>
+<REAL/>
+</type>
+<initialValue>
+<simpleValue value="0.0"/>
+</initialValue>
+</variable>
+</localVars>
+</interface>
+<body>
+<FBD>
+<worksheet SizeX="298" SizeY="340" name="DBC_BSV_FBrMis">
+<comment height="4" localId="9" width="10">
+<position x="4" y="3"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:MS ????;width:200px; height:300px" xml:space="preserve">W10</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="10" width="8">
+<position x="4" y="11"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>Enable</expression>
+</inVariable>
+<return height="2" localId="11" width="12">
+<position x="24" y="11"/>
+<connectionPointIn>
+<relPosition x="0" y="1"/>
+<connection formalParameter="NOT" refLocalId="109"/>
+</connectionPointIn>
+</return>
+<comment height="4" localId="12" width="74">
+<position x="81" y="16"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:MS ????;width:200px; height:300px" xml:space="preserve">The amount of mising friction brake force (FBrMis) in consist</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="13" width="34">
+<position x="4" y="27"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU DM1 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="14" width="24">
+<position x="71" y="27"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_DM1</expression>
+</inVariable>
+<comment height="3" localId="15" width="34">
+<position x="4" y="47"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU TT2 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="16" width="24">
+<position x="71" y="47"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_TT2</expression>
+</inVariable>
+<comment height="3" localId="17" width="33">
+<position x="4" y="67"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU M3 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="18" width="23">
+<position x="72" y="67"/>
+<connectionPointOut>
+<relPosition x="23" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_M3</expression>
+</inVariable>
+<comment height="3" localId="19" width="33">
+<position x="4" y="87"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU T4 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="20" width="22">
+<position x="73" y="87"/>
+<connectionPointOut>
+<relPosition x="22" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_T4</expression>
+</inVariable>
+<inVariable height="2" localId="21" width="25">
+<position x="70" y="31"/>
+<connectionPointOut>
+<relPosition x="25" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_DM1</expression>
+</inVariable>
+<inVariable height="2" localId="22" width="24">
+<position x="71" y="71"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_M3</expression>
+</inVariable>
+<inVariable height="2" localId="23" width="25">
+<position x="70" y="51"/>
+<connectionPointOut>
+<relPosition x="25" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_TT2</expression>
+</inVariable>
+<inVariable height="2" localId="24" width="24">
+<position x="71" y="91"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_T4</expression>
+</inVariable>
+<inVariable height="2" localId="25" width="8">
+<position x="87" y="35"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="26" width="8">
+<position x="87" y="55"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="27" width="8">
+<position x="87" y="75"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="28" width="8">
+<position x="87" y="95"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<comment height="6" localId="29" width="24">
+<position x="248" y="142"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:177px" xml:space="preserve">Revision history:<br/>
+<br/>Date            Release    SCR      Sign</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="30" width="33">
+<position x="4" y="191"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU T5 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="31" width="22">
+<position x="76" y="191"/>
+<connectionPointOut>
+<relPosition x="22" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_T5</expression>
+</inVariable>
+<comment height="3" localId="32" width="33">
+<position x="4" y="211"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU M6 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="33" width="23">
+<position x="75" y="211"/>
+<connectionPointOut>
+<relPosition x="23" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_M6</expression>
+</inVariable>
+<comment height="3" localId="34" width="34">
+<position x="4" y="231"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU TT7 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="35" width="24">
+<position x="74" y="231"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_TT7</expression>
+</inVariable>
+<comment height="3" localId="36" width="34">
+<position x="4" y="251"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:216px" xml:space="preserve">Service brake available, BCU DM8 car</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="37" width="24">
+<position x="74" y="251"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_S_BcuAvl_DM8</expression>
+</inVariable>
+<inVariable height="2" localId="38" width="24">
+<position x="74" y="195"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_T5</expression>
+</inVariable>
+<inVariable height="2" localId="39" width="25">
+<position x="73" y="235"/>
+<connectionPointOut>
+<relPosition x="25" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_TT7</expression>
+</inVariable>
+<inVariable height="2" localId="40" width="24">
+<position x="74" y="215"/>
+<connectionPointOut>
+<relPosition x="24" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_M6</expression>
+</inVariable>
+<inVariable height="2" localId="41" width="25">
+<position x="73" y="255"/>
+<connectionPointOut>
+<relPosition x="25" y="1"/>
+</connectionPointOut>
+<expression>DBC_BSV_XF_FBrMis_DM8</expression>
+</inVariable>
+<inVariable height="2" localId="42" width="8">
+<position x="90" y="199"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="43" width="8">
+<position x="90" y="219"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="44" width="8">
+<position x="90" y="239"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<inVariable height="2" localId="45" width="8">
+<position x="90" y="259"/>
+<connectionPointOut>
+<relPosition x="8" y="1"/>
+</connectionPointOut>
+<expression>P_0kN</expression>
+</inVariable>
+<outVariable height="2" localId="46" width="20">
+<position x="126" y="183"/>
+<connectionPointIn>
+<relPosition x="0" y="1"/>
+<connection formalParameter="ADD" refLocalId="119"/>
+</connectionPointIn>
+<expression>DBC_BSV_XF_FBrMis</expression>
+</outVariable>
+<comment height="3" localId="47" width="45">
+<position x="152" y="183"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Amount of mising brake force (FBrMis) in a consist, 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="48" width="49">
+<position x="150" y="27"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Amount of mising brake force (FBrMis) in first 4 car unit, 1=1kN</p>
+</html>
+</content>
+</comment>
+<outVariable height="2" localId="49" width="16">
+<position x="123" y="27"/>
+<connectionPointIn>
+<relPosition x="0" y="1"/>
+<connection formalParameter="ADD" refLocalId="114"/>
+</connectionPointIn>
+<expression>W10_XF_FBrMis</expression>
+</outVariable>
+<comment height="3" localId="50" width="49">
+<position x="4" y="183"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Amount of mising brake force (FBrMis) in first 4 car unit, 1=1kN</p>
+</html>
+</content>
+</comment>
+<inVariable height="2" localId="51" width="16">
+<position x="80" y="183"/>
+<connectionPointOut>
+<relPosition x="16" y="1"/>
+</connectionPointOut>
+<expression>W10_XF_FBrMis</expression>
+</inVariable>
+<comment height="6" localId="52" width="24">
+<position x="250" y="304"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:177px" xml:space="preserve">Revision history:<br/>
+<br/>Date            Release    SCR      Sign</p>
+</html>
+</content>
+</comment>
+<comment height="4" localId="53" width="74">
+<position x="84" y="171"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:MS ????;width:200px; height:300px" xml:space="preserve">The amount of mising friction brake force (FBrMis) in consist</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="54" width="43">
+<position x="4" y="195"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (TrlBrRef) to compensation T5 car, 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="55" width="45">
+<position x="4" y="235"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (TrlBrRef) to compensation TT7 car , 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="56" width="44">
+<position x="4" y="215"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (MtBrRef) to compensation M6 car, 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="57" width="45">
+<position x="4" y="255"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (MtBrRef) to compensation DM8 car , 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="58" width="45">
+<position x="4" y="31"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (MtBrRef) to compensation DM1 car, 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="59" width="44">
+<position x="4" y="71"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (MtBrRef) to compensation M3 car , 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="60" width="44">
+<position x="4" y="51"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (TrlBrRef) to compensation TT2 car, 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="61" width="44">
+<position x="4" y="91"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:210px" xml:space="preserve">Friction brake (TrlBrRef) to compensation T4 car , 1=1kN</p>
+</html>
+</content>
+</comment>
+<comment height="4" localId="62" width="10">
+<position x="4" y="165"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:MS ????;width:200px; height:300px" xml:space="preserve">W20</p>
+</html>
+</content>
+</comment>
+<comment height="3" localId="63" width="16">
+<position x="131" y="188"/>
+<content>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<p style="color:#000000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:;width:0px; height:228px" xml:space="preserve">REQ 838, 839</p>
+</html>
+</content>
+</comment>
+<block height="8" localId="109" typeName="NOT" width="8">
+<position x="14" y="8"/>
+<inputVariables>
+<variable dataType="ANY_BIT" formalParameter="IN1" hidden="true" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="10"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY_BIT" formalParameter="NOT" hidden="true" invertable="true">
+<connectionPointOut>
+<relPosition x="10" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="110" typeName="SEL" width="9">
+<position x="97" y="24"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="14"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="21"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="25"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="111" typeName="SEL" width="9">
+<position x="97" y="44"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="16"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="23"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="26"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="112" typeName="SEL" width="9">
+<position x="97" y="64"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="18"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="22"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="27"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="113" typeName="SEL" width="9">
+<position x="97" y="84"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="20"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="24"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="28"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="70" localId="114" typeName="ADD" width="8">
+<position x="113" y="26"/>
+<inputVariables>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN1" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="2"/>
+<connection formalParameter="SEL" refLocalId="110">
+<position pathnode="false" x="111" y="28"/>
+<position pathnode="false" x="108" y="28"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN2" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="22"/>
+<connection formalParameter="SEL" refLocalId="111">
+<position pathnode="false" x="111" y="48"/>
+<position pathnode="false" x="108" y="48"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN3" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="42"/>
+<connection formalParameter="SEL" refLocalId="112">
+<position pathnode="false" x="111" y="68"/>
+<position pathnode="false" x="108" y="68"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN4" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="62"/>
+<connection formalParameter="SEL" refLocalId="113">
+<position pathnode="false" x="111" y="88"/>
+<position pathnode="false" x="108" y="88"/>
+</connection>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY_NUM" formalParameter="ADD" hidden="true">
+<connectionPointOut>
+<relPosition x="10" y="2"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="115" typeName="SEL" width="9">
+<position x="100" y="188"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="31"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="38"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="42"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="116" typeName="SEL" width="9">
+<position x="100" y="208"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="33"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="40"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="43"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="117" typeName="SEL" width="9">
+<position x="100" y="228"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="35"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="39"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="44"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="16" localId="118" typeName="SEL" width="9">
+<position x="100" y="248"/>
+<inputVariables>
+<variable dataType="BOOL" formalParameter="G" invertable="true">
+<connectionPointIn>
+<relPosition x="-2" y="4"/>
+<connection refLocalId="37"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN0">
+<connectionPointIn>
+<relPosition x="-2" y="8"/>
+<connection refLocalId="41"/>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY" formalParameter="IN1">
+<connectionPointIn>
+<relPosition x="-2" y="12"/>
+<connection refLocalId="45"/>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY" formalParameter="SEL" hidden="true">
+<connectionPointOut>
+<relPosition x="11" y="4"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+<block height="74" localId="119" typeName="ADD" width="8">
+<position x="116" y="182"/>
+<inputVariables>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN1" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="2"/>
+<connection refLocalId="51">
+<position pathnode="false" x="114" y="184"/>
+<position pathnode="false" x="96" y="184"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN2" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="10"/>
+<connection formalParameter="SEL" refLocalId="115">
+<position pathnode="false" x="114" y="192"/>
+<position pathnode="false" x="111" y="192"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN3" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="30"/>
+<connection formalParameter="SEL" refLocalId="116">
+<position pathnode="false" x="114" y="212"/>
+<position pathnode="false" x="111" y="212"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN4" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="50"/>
+<connection formalParameter="SEL" refLocalId="117">
+<position pathnode="false" x="114" y="232"/>
+<position pathnode="false" x="111" y="232"/>
+</connection>
+</connectionPointIn>
+</variable>
+<variable dataType="ANY_NUM" duplicatable="true" formalParameter="IN5" hidden="true">
+<connectionPointIn>
+<relPosition x="-2" y="70"/>
+<connection formalParameter="SEL" refLocalId="118">
+<position pathnode="false" x="114" y="252"/>
+<position pathnode="false" x="111" y="252"/>
+</connection>
+</connectionPointIn>
+</variable>
+</inputVariables>
+<inOutVariables/>
+<outputVariables>
+<variable dataType="ANY_NUM" formalParameter="ADD" hidden="true">
+<connectionPointOut>
+<relPosition x="10" y="2"/>
+</connectionPointOut>
+</variable>
+</outputVariables>
+</block>
+</worksheet>
+</FBD>
+</body>
+<documentation>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<div id="MWTDESCRIPTION" wsName="DBC_BSV_FBrMisT" xml:space="preserve">*****************************************************************************<br/>* IDENTITY: DBC_BSV_FBrMis<br/>* AUTHOR  : Arild Bjerke MLM/3EEVTS 2012-10-09<br/>*****************************************************************************<br/>* DESCRIPTION:<br/>* If one car has failed DEP brake the missing brake force shall be distributed <br/>* to the other cars with available DEP brake.<br/>* <br/>* OUTPUT SIGNALS:<br/>* "Amount of mising brake force (FBrMis) in a consist" = <br/>* (IF "Service brake available, BCU DM1 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (MtBrRef) to compensation DM1 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU TT2 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (TrlBrRef) to compensation TT2 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU M3 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (MtBrRef) to compensation M3 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU T4 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (TrlBrRef) to compensation T4 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU T5 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (TrlBrRef) to compensation T5 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU M6 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (MtBrRef) to compensation M6 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU TT7 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (TrlBrRef) to compensation TT7 car")<br/>* END)<br/>*  +<br/>* (IF "Service brake available, BCU DM8 car" THEN<br/>*    0 kN<br/>* ELSE<br/>*  "Friction brake (MtBrRef) to compensation DM8 car")<br/>* END)<br/>*  <br/>* REQUIREMENTS HANDLED:<br/>* Baseline 2.0<br/>* [SRS-DBC-REQ-0838] v.1<br/>* [SRS-DBC-REQ-0839] v.1<br/>*<br/>* Version	Date	      Sign.	   Appl. Version	SCR's	<br/>* 1         2012-10-16    AB       0.1.4.1          N/A<br/>*<br/>*****************************************************************************<br/>* Copyright Bombardier Transportation AB<br/>*****************************************************************************<br/>
+</div>
+</html>
+</documentation>
+</pou>
+</pous>
+</types>
+<instances>
+<configurations/>
+</instances>
+</project>
+

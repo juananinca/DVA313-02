@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.plcopen.org/xml/tc6.xsd">
+  <fileHeader companyName="Bombardier Transportation" companyURL="www.kw-software.com" productName="1131-TOOL" productVersion="3.0.0.2" creationDateTime="2015-03-05T11:10:42" contentDescription=""/>
+  <contentHeader name="édi" version="1425550242" modificationDateTime="2015-03-05T11:10:42">
+    <coordinateInfo>
+      <pageSize x="999" y="400"/>
+      <fbd>
+        <scaling x="2" y="2"/>
+      </fbd>
+      <ld>
+        <scaling x="2" y="2"/>
+      </ld>
+      <sfc>
+        <scaling x="2" y="2"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="th_X_Trip" pouType="program">
+        <interface>
+          <inputVars retain="false">
+            <variable name="f_X">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="f_Module_Error">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="f_Channel_Error">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="tx_X_Logic_Trip">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <localVars retain="false">
+            <variable name="K_X_Min">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="-55"/>
+              </initialValue>
+            </variable>
+          </localVars>
+          <outputVars retain="false">
+            <variable name="tx_X_trip">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+          <localVars retain="false">
+            <variable name="k_X_Max">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="125"/>
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <FBD>
+            <block width="8" height="12" typeName="GE" localId="3">
+              <position x="36" y="12"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="36" y="15"/>
+                  <connection refLocalId="40">
+                    <position x="34" y="16"/>
+                    <position x="28" y="16"/>
+                    <position x="28" y="25"/>
+                    <position x="23" y="25"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="36" y="19"/>
+                  <connection refLocalId="47">
+                    <position x="34" y="20"/>
+                    <position x="24" y="20"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="GE" hidden="true">
+                  <position x="43" y="15"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="12" typeName="LE" localId="7">
+              <position x="36" y="28"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="36" y="31"/>
+                  <connection refLocalId="40">
+                    <position x="34" y="32"/>
+                    <position x="28" y="32"/>
+                    <position x="28" y="25"/>
+                    <position x="23" y="25"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="36" y="35"/>
+                  <connection refLocalId="49">
+                    <position x="34" y="36"/>
+                    <position x="28" y="36"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="LE" hidden="true">
+                  <position x="43" y="31"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="12" typeName="AND" localId="11">
+              <position x="63" y="13"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="63" y="16"/>
+                  <connection refLocalId="3" formalParameter="GE">
+                    <position x="61" y="17"/>
+                    <position x="53" y="17"/>
+                    <position x="53" y="16"/>
+                    <position x="46" y="16"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="63" y="20"/>
+                  <connection refLocalId="7" formalParameter="LE">
+                    <position x="61" y="21"/>
+                    <position x="53" y="21"/>
+                    <position x="53" y="32"/>
+                    <position x="46" y="32"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT" hidden="true">
+                  <position x="70" y="16"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="8" typeName="NOT" localId="14">
+              <position x="81" y="13"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="81" y="16"/>
+                  <connection refLocalId="11" formalParameter="OUT">
+                    <position x="79" y="17"/>
+                    <position x="73" y="17"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="NOT" hidden="true">
+                  <position x="88" y="16"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="12" typeName="OR" localId="18">
+              <position x="106" y="35"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="106" y="38"/>
+                  <connection refLocalId="14" formalParameter="NOT">
+                    <position x="104" y="39"/>
+                    <position x="97" y="39"/>
+                    <position x="97" y="17"/>
+                    <position x="91" y="17"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="106" y="42"/>
+                  <connection refLocalId="41">
+                    <position x="104" y="43"/>
+                    <position x="29" y="43"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OR" hidden="true">
+                  <position x="113" y="38"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="12" typeName="OR" localId="22">
+              <position x="106" y="51"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="106" y="54"/>
+                  <connection refLocalId="42">
+                    <position x="104" y="55"/>
+                    <position x="30" y="55"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="106" y="58"/>
+                  <connection refLocalId="43">
+                    <position x="104" y="59"/>
+                    <position x="30" y="59"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OR" hidden="true">
+                  <position x="113" y="54"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <block width="8" height="12" typeName="OR" localId="26">
+              <position x="129" y="40"/>
+              <inputVariables>
+                <variable formalParameter="IN1" hidden="true">
+                  <position x="129" y="43"/>
+                  <connection refLocalId="18" formalParameter="OR">
+                    <position x="127" y="44"/>
+                    <position x="121" y="44"/>
+                    <position x="121" y="39"/>
+                    <position x="116" y="39"/>
+                  </connection>
+                </variable>
+                <variable formalParameter="IN2" hidden="true">
+                  <position x="129" y="47"/>
+                  <connection refLocalId="22" formalParameter="OR">
+                    <position x="127" y="48"/>
+                    <position x="121" y="48"/>
+                    <position x="121" y="55"/>
+                    <position x="116" y="55"/>
+                  </connection>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OR" hidden="true">
+                  <position x="136" y="43"/>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="40" width="6" height="2">
+              <position x="17" y="24"/>
+              <variable>f_X</variable>
+            </inVariable>
+            <inVariable localId="41" width="15" height="2">
+              <position x="14" y="42"/>
+              <variable>f_Module_Error</variable>
+            </inVariable>
+            <inVariable localId="42" width="16" height="2">
+              <position x="14" y="54"/>
+              <variable>f_Channel_Error</variable>
+            </inVariable>
+            <inVariable localId="43" width="16" height="2">
+              <position x="14" y="58"/>
+              <variable>tx_X_Logic_Trip</variable>
+            </inVariable>
+            <inVariable localId="47" width="10" height="2">
+              <position x="14" y="19"/>
+              <variable>K_X_Min</variable>
+            </inVariable>
+            <inVariable localId="49" width="11" height="2">
+              <position x="17" y="35"/>
+              <variable>k_X_Max</variable>
+            </inVariable>
+            <outVariable localId="59" width="10" height="2">
+              <position x="144" y="43"/>
+              <connection refLocalId="26" formalParameter="OR">
+                <position x="144" y="44"/>
+                <position x="139" y="44"/>
+              </connection>
+              <variable>tx_X_trip</variable>
+            </outVariable>
+          </FBD>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations/>
+  </instances>
+</project>
