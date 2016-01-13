@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace GUItest
 {
+    public struct Interval
+    {
+        public string interval_a;
+        public string interval_b;
+    }
     public struct Variable
     {
         public string name;
         public string datatype;
-        public string interval_a;
-        public string interval_b;
+        public Interval[] intervals;
     }
 
     public struct VariableBC
@@ -27,66 +31,68 @@ namespace GUItest
 
         public string[,] GetBaseChoiceTests(VariableBC[] varList)
         {
-            int n = varList.Length; // number of inputs
-            int[,] range = new int[n, 2];
-            int[] baseValues = new int[n]; 
-            int[,] arr;
-            string[,] table;
+            int numInput = varList.Length; // number of inputs
+            string[] baseValues = new string[numInput];
+            string[,] testCases;
             int k = 0, m = 0, q = 0;
+            List<string>[] intervals = new List<string>[numInput]; // an array of lists, where each list contains all the values within the interval(s) for an input
+            List<string> allValues;
 
-            numTestCases = 0;
-            range = getIntervals(varList); // get start and end of all intervals
             baseValues = getBaseValues(varList); // get all base values
 
-            for (int i = 0; i < range.GetLength(0); i++) 
+            numTestCases = 0;
+            for (int i = 0; i < numInput; i++)
             {
-                numTestCases = numTestCases + (range[i, 1] - range[i, 0]);
+                intervals[i] = getAllFromIntervals(varList[i]); // all the values within the intervals, e.g. 2-5;7-9;17-19 -> (2,3,4,5,7,8,9,17,18,19)
+                numTestCases = numTestCases + intervals[i].Count;
+                //printListStr(intervals[i]); // test function just to print all the values within the intervals of a Variable
             }
-            numTestCases = numTestCases + 1; // number of test cases
+            numTestCases = numTestCases - numInput + 1; // calculate the number of test cases
 
-            arr = new int[numTestCases, n];
+            testCases = new string[numTestCases, numInput]; // size of array which will contain the test cases, where each row is a test
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < numInput; i++) // add the combination of all base values as the last test case
             {
-                arr[numTestCases - 1, i] = baseValues[i];
+                testCases[numTestCases - 1, i] = baseValues[i];
             }
 
             // generate the base choice test cases 
-            for (int i = 0; i < n; i++) 
+            for (int i = 0; i < numInput; i++)
             {
-                for (int a = range[i, 0]; a <= range[i, 1]; a++)
+                allValues = getUniqueList(intervals[i]);  // list of all the values within the interval(s) for an input (doesn't contain any duplicates)
+                //printListStr(allValues);
+                //System.Windows.Forms.MessageBox.Show("All values count: " + allValues.Count);
+                for (int a = 0; a < allValues.Count; a++)
                 {
-                    if (baseValues[i] != a)
+                    if (baseValues[i] != allValues.ElementAt(a))
                     {
-                        arr[k, i] = a;
+                        testCases[k, i] = allValues.ElementAt(a);
                         k++;
                     }
-
                 }
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < numInput; j++)
                 {
                     if (i != j)
                     {
                         for (m = q; m < k; m++)
                         {
-                            arr[m, j] = baseValues[j];
+                            testCases[m, j] = baseValues[j];
                         }
                     }
                 }
                 q = m;
             }
+            return testCases;
+        }
 
-            table = new string[numTestCases, n];
-
-            for (int i = 0; i < numTestCases; i++) // save the generated test cases in a 2d-array of strings
+        private List<string> getUniqueList(List<string> list)
+        {
+            HashSet<string> hs = new HashSet<string>();
+            for (int i = 0; i < list.Count; i++)
             {
-                for (int j = 0; j < n; j++)
-                {
-                    table[i, j] = arr[i, j].ToString();
-                }
+                hs.Add(list.ElementAt(i));
             }
-
-            return table;
+            return hs.ToList();
         }
 
         public int GetNumTestCases()
@@ -94,27 +100,77 @@ namespace GUItest
             return numTestCases;
         }
 
-        private int[] getBaseValues(VariableBC[] varList)
+        private List<string> getAllFromIntervals(VariableBC v) // get all the values within the intervals from a variable to an array
         {
-            int numInputs = varList.Length;
-            int[] baseValues = new int[numInputs];
-            for (int i = 0; i < numInputs; i++)
+            switch (v.variable.datatype)
             {
-                baseValues[i] = Int32.Parse(varList[i].baseChoice);
+                case "INT":
+                    return getAllValues_Int(v.variable.intervals);
+                case "BOOL":
+                    return getAllValues_Int(v.variable.intervals);
+                case "REAL":
+                    return getAllValues_Float(v.variable.intervals);
+                default:
+                    List<string> s = new List<string>();
+                    s.Add("Error");
+                    return s;
             }
-            return baseValues;
         }
 
-        private int[,] getIntervals(VariableBC[] varList)
+        private List<string> getAllValues_Int(Interval[] intervals) // returns a list of all the values within the intervals
+        {
+            int a = 0, b = 0;
+            List<string> list = new List<string>();
+            for (int i = 0; i < intervals.Length; i++)
+            {
+                a = Int32.Parse(intervals[i].interval_a);
+                b = Int32.Parse(intervals[i].interval_b);
+                while (a <= b)
+                {
+                    list.Add(a.ToString());
+                    a = a + 1;
+                }
+            }
+            return list;
+        }
+
+        private List<string> getAllValues_Float(Interval[] intervals) // returns a list of all the values within the intervals
+        {
+            float a = 0.0f, b = 0.0f;
+            List<string> list = new List<string>();
+            for (int i = 0; i < intervals.Length; i++)
+            {
+                a = float.Parse(intervals[i].interval_a);
+                b = float.Parse(intervals[i].interval_b);
+                while (a <= b)
+                {
+                    a = float.Parse(Math.Round((Decimal)a, 1) + "");
+                    list.Add(a.ToString("0.0"));
+                    a = a + 0.1f;
+                }
+            }
+            return list;
+        }
+
+        private void printListStr(List<string> list)
+        {
+            string elements = "";
+            for (int i = 0; i < list.Count; i++)
+            {
+                elements = elements + list.ElementAt(i) + " ";
+            }
+            System.Windows.Forms.MessageBox.Show("All elements within ranges: " + elements);
+        }
+
+        private string[] getBaseValues(VariableBC[] varList)
         {
             int numInputs = varList.Length;
-            int[,] intervals = new int[numInputs, 2];
+            string[] baseValues = new string[numInputs];
             for (int i = 0; i < numInputs; i++)
             {
-                intervals[i, 0] = Int32.Parse(varList[i].variable.interval_a);
-                intervals[i, 1] = Int32.Parse(varList[i].variable.interval_b);
+                baseValues[i] = varList[i].baseChoice;
             }
-            return intervals;
+            return baseValues;
         }
 
         public string[,] GetRandomTests(int numTests, Variable[] varList)
@@ -122,7 +178,7 @@ namespace GUItest
             string[,] table = new string[numTests, varList.Length];
             for (int i = 0; i < numTests; i++) // loop for each test
             {
-                for (int j = 0; j < varList.Length; j++) 
+                for (int j = 0; j < varList.Length; j++)
                 {
                     table[i, j] = GetRandom(varList[j]); // generate a random value for all the inputs in the list
                 }
@@ -132,49 +188,57 @@ namespace GUItest
 
         private string GetRandom(Variable variable)
         {
+            int iIndex = getRandomIntervalIndex(variable.intervals.Length);
+            Interval interval = variable.intervals[iIndex];
             switch (variable.datatype)
             {
                 case "INT":
-                    return getRandom_int(variable);
                 case "BOOL":
-                    return getRandom_bool(variable);
-                case "LREAL":
-                    return getRandom_double(variable);
+                    return getRandom_int(interval);
+                    //return getRandom_bool(interval);
+                //case "LREAL":
+                //    return getRandom_double(interval);
                 case "REAL":
-                    return getRandom_float(variable);
+                    return getRandom_float(interval);
                 default:
                     return "-";
             }
         }
-        private string getRandom_int(Variable v)
+
+        private int getRandomIntervalIndex(int numIntervals)
         {
-            int min = Int32.Parse(v.interval_a);
-            int max = Int32.Parse(v.interval_b);
+            return random.Next(0, numIntervals);
+        }
+
+        private string getRandom_int(Interval interval)
+        {
+            int min = Int32.Parse(interval.interval_a);
+            int max = Int32.Parse(interval.interval_b);
             int r = random.Next(min, (max + 1));
             return r.ToString();
         }
-        private string getRandom_bool(Variable v)
+        private string getRandom_bool(Interval interval)
         {
-            int min = Int32.Parse(v.interval_a);
-            int max = Int32.Parse(v.interval_b);
+            int min = Int32.Parse(interval.interval_a);
+            int max = Int32.Parse(interval.interval_b);
             int r = random.Next(min, (max + 1));
             return r.ToString();
         }
 
-        private string getRandom_double(Variable v)
+        private string getRandom_double(Interval interval)
         {
-            double min = Double.Parse(v.interval_a);
-            double max = Double.Parse(v.interval_b);
+            double min = Double.Parse(interval.interval_a);
+            double max = Double.Parse(interval.interval_b);
             double r = min + random.NextDouble() * (max - min);
-            return r.ToString().Replace(",", "."); ;
+            return r.ToString("0.0"); ;
         }
 
-        private string getRandom_float(Variable v)
+        private string getRandom_float(Interval interval)
         {
-            float min = float.Parse(v.interval_a);
-            float max = float.Parse(v.interval_b);
+            float min = float.Parse(interval.interval_a);
+            float max = float.Parse(interval.interval_b);
             float r = min + ((float)(random.NextDouble())) * (max - min);
-            return r.ToString().Replace(",", ".");
+            return r.ToString("0.0");
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GUItest
 {
@@ -19,7 +20,7 @@ namespace GUItest
         public string xmlString;
         private bool end = false;
 
-        public string getText(string message)
+        /*public string getText(string message)
         {
             List<varData> dataList = new List<varData>();
 
@@ -30,41 +31,37 @@ namespace GUItest
                 message += "Name: " + item.name + "\n" + "Type: " + item.type + "\n\n";
             }
             return message;
+        }*/
+
+        public void SetXMLPath(string s)
+        {
+            this.xmlString = s;
         }
 
-        public List<varData> readXMLDoc(List<varData> dataList)
+        public List<varData> readXMLDoc(List<varData> dataList, XmlDocument xmlDoc)
         {
             varData temp;
+            XmlNodeList nodeList;
+            xmlDoc = RemoveNS(xmlDoc);
 
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            XmlElement root = xmlDoc.DocumentElement;
+            nodeList = root.SelectNodes("/project/types/pous/pou/interface/inputVars/variable");
+            foreach (XmlNode isbn in nodeList)
             {
-                reader.ReadToFollowing("inputVars");
-                while (reader.Read() && !end)
-                {
-                    switch (reader.NodeType)
-                    {
-                        case XmlNodeType.Element: // The node is an element.
-                            if (reader.Name == "variable")
-                            {
-                                reader.MoveToFirstAttribute();
-                                temp.name = reader.Value;
-                                reader.ReadToFollowing("type");
-                                reader.Read();
-                                reader.Read();
-                                temp.type = reader.Name;
-                                dataList.Add(temp);
-                            }
-                            break;
-                        case XmlNodeType.EndElement:
-                            if (reader.Name == "inputVars")
-                            {
-                                end = true;
-                            }
-                            break;
-                    }
-                }
+                temp.name = isbn.Attributes["name"].Value;
+                temp.type = isbn.FirstChild.FirstChild.Name;
+                dataList.Add(temp);
             }
             return dataList;
+        }
+
+        private XmlDocument RemoveNS(XmlDocument doc)
+        {
+            var xml = doc.OuterXml;
+            var newxml = Regex.Replace(xml, @"xmlns[:xsi|:xsd]*="".*?""", "");
+            var newdoc = new XmlDocument();
+            newdoc.LoadXml(newxml);
+            return newdoc;
         }
     }
 }
